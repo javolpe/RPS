@@ -1,0 +1,90 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>RPS 1 week later</title>
+</head>
+
+<body>
+    <script>
+let inputs = ['rock', 'paper', 'scissors'];
+
+function compRandom() {
+    const rand = Math.floor(Math.random() * inputs.length)
+   let compSelection = inputs[rand];
+   return compSelection;
+}
+
+function playerChoice(){
+    let input = prompt("Please enter Rock, Paper, or scissors:", "Rock, Paper, or Scissors");
+    if (input === null){return null;}
+    let choice = input.toLowerCase();
+
+    if ((choice !== 'rock') && (choice !== 'paper') && (choice !== 'scissors')) {
+         alert('invalid entry'); return 'invalid entry';
+    } else if (choice === 'rock' || choice === 'paper' || choice === 'scissors') {
+     return choice;
+    }  else  {alert('Game Discarded');}
+     
+}
+
+
+
+function playRound(){
+    let playerSelection = playerChoice();
+let compSelection = compRandom();
+alert(`You chose ${playerSelection} and the computer chose ${compSelection}. 
+
+(Invalid entries count as a computer win.)`);
+
+
+console.log(playerSelection);
+console.log(compSelection);
+
+    if (playerSelection === compSelection){
+       alert('Tie game.'); return 'tie';
+    
+    } else if ((playerSelection == 'rock' && compSelection == 'scissors') ||
+        (playerSelection == 'paper' && compSelection == 'rock') ||
+        (playerSelection == 'scissors' && compSelection == 'paper')){
+         alert('You win.');   return true;
+    }  else {alert('You lose.'); return false;}
+ 
+     }
+
+var userWins = 0;
+var computerWins = 0;
+var tieGames = 0;
+ 
+
+function game(){
+
+for (let i=0; i<5; i++){  
+
+    var win = playRound();
+    
+if (win === 'tie'){ tieGames++;
+}else if (win === true){ userWins++;
+}else {computerWins++;}
+
+let result = `User wins is ${userWins}, computer wins is ${computerWins}, and tie games is ${tieGames}.`;
+alert: result;
+console.log(result);
+}}
+
+function finalMessage(){
+   let message = `The final score is player wins: ${userWins}, computer wins ${computerWins}, and tie games: ${tieGames}`;
+    alert: message;
+    return message;
+}
+
+game();
+
+
+finalMessage();
+console.log(finalMessage());
+
+</script>
+</body>
+</html>
